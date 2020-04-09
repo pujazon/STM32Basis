@@ -6,7 +6,10 @@ int OSMain(void)
 {
 	SecVal ret;
 	
-	GPIOx_MODER_set(GPIO_D,13,GPIOx_MODER_OUTPUT);
+	//Check that different GPIO are well mapped
+	GPIOx_MODER_set(GPIO_A,13,GPIOx_MODER_OUTPUT);
+	GPIOx_MODER_set(GPIO_B,13,GPIOx_MODER_OUTPUT);
+	GPIOx_MODER_set(GPIO_C,13,GPIOx_MODER_OUTPUT);
 	
 	return ret;
 }

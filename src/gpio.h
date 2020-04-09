@@ -23,6 +23,10 @@ typedef struct GPIO {
 	uint32_t volatile LCKR;
 	uint32_t volatile AFRL;
 	uint32_t volatile AFRH;
+	//Each GPIO begins on a 0x400 offeset, so we have to add padding
+	//TODO: Add scatter specifiyng each GPIO address, no padding needed.
+	uint32_t padding[246];
+	
 } GPIOx;
 
 /* GPIO addressing */
