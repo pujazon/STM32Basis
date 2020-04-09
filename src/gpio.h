@@ -61,6 +61,23 @@ typedef struct GPIO {
 #define GPIO_J ((GPIOx *) GPIO_J_addr)
 #define GPIO_K ((GPIOx *) GPIO_K_addr)
 
+
+/************************** GPIOx Utils *************************/
+
+/* Boundary of possible OTYPER input values */
+#define GPIOx_OTYPER_ERROR_VALUE 0x04
+
+/* Boundary of possible input values */
+#define GPIOx_MAX_PIN 16
+
+/* High voltage, logical "1" */
+#define GPIO_HIGH 0x01
+
+/* Low voltage, logical "0" */
+#define GPIO_LOW 0x00
+
+/************************** GPIOx_MODER *************************/
+
 /* Value in GPIOx_MODER which means pin set as input GPIO */
 #define GPIOx_MODER_INPUT 0x00
 
@@ -73,11 +90,51 @@ typedef struct GPIO {
 /* Value in GPIOx_MODER which means pin set as analog GPIO */
 #define GPIOx_MODER_ANALOG 0x03
 
-/* Boundary of possible input values */
+/* Boundary of possible MODER input values */
 #define GPIOx_MODER_ERROR_VALUE 0x04
 
-/* Boundary of possible input values */
-#define GPIOx_MODER_MAX_PIN 16
+/************************** GPIOx_OTYPER *************************/
+
+/* Value in GPIOx_OTYPER which means pin set as Push Pull
+	 This means that has a transistor connected to Vdd and transistor to gnd
+	 So behaviour becomes "standard"
+*/
+#define GPIOx_OTYPER_PUSH_PULL 0x00
+
+/* Value in GPIOx_OTYPER which means pin set as Open Drain
+	 This means only can output value 0, otherwise is Z
+*/
+#define GPIOx_OTYPER_OPEN_DRAIN 0x01
+
+/************************** GPIOx_OSPEEDR *************************/
+
+/* Value in GPIOx_MODER which means pin set as analog GPIO */
+#define GPIOx_OSPEEDR_LOW_SPEED 0x00
+
+/* Value in GPIOx_MODER which means pin set as analog GPIO */
+#define GPIOx_OSPEEDR_MEDIUM 0x01
+
+/* Value in GPIOx_MODER which means pin set as analog GPIO */
+#define GPIOx_OSPEEDR_HIGH_SPEED 0x02
+
+/* Value in GPIOx_MODER which means pin set as analog GPIO */
+#define GPIOx_OSPEEDR_VERY_HIGH_SPEED 0x03
+
+/************************** GPIOx_PUPDR *************************/
+
+/* GPIO pin value won't be pulled */
+#define GPIOx_PUPDR_NO_PULL 0x00
+
+/* GPIO pin value will be set as pull-up */
+#define GPIOx_PUPDR_PULL_UP 0x01
+
+/* GPIO pin value will be set as pull-down */
+#define GPIOx_PUPDR_PULL_DOWN 0x02
+
+/* No accepted value */
+#define GPIOx_PUPDR_RESERVED 0x03
+
+/******************************************************************/
 
 //TODO: no plain values, diferent value ones. 
 //TODO: Use pointers (passed by reference) instead passing on parameter  
@@ -115,7 +172,7 @@ SecVal GPIOx_MODER_get(uint8_t pin, uint8_t* value);
 				1: Output open-drain
 				*/
 
-SecVal GPIOx_OTYPER_set(uint8_t pin, uint8_t value);
+SecVal GPIOx_OTYPER_set(GPIOx *GPIO, uint32_t pin, uint32_t value);
 
 //Same, Bit 31..16 cannot be addressed
 
@@ -129,7 +186,7 @@ SecVal GPIOx_OTYPER_get(uint8_t pin, uint8_t* value);
 				10: High speed
 				11: Very high speed
 				*/
-SecVal GPIOx_OSPEEDR_set(uint8_t pin, uint8_t value);
+SecVal GPIOx_OSPEEDR_set(GPIOx *GPIO, uint32_t pin, uint32_t value);
 
 
 SecVal GPIOx_OSPEEDR_get(uint8_t pin, uint8_t* value);
@@ -142,7 +199,7 @@ SecVal GPIOx_OSPEEDR_get(uint8_t pin, uint8_t* value);
 				10: Pull-down
 				11: Reserved
 				*/
-SecVal GPIOx_PUPDR_set(uint8_t pin, uint8_t value);
+SecVal GPIOx_PUPDR_set(GPIOx *GPIO, uint32_t pin, uint32_t value);
 
 SecVal GPIOx_PUPDR_get(uint8_t pin, uint8_t* value);
 
@@ -152,7 +209,7 @@ SecVal GPIOx_PUPDR_get(uint8_t pin, uint8_t* value);
 				These bits are read-only and can be accessed in word mode only. They contain the input
 				value of the corresponding I/O port.
 				*/
-SecVal GPIOx_IDR_set(uint8_t pin, uint8_t value);
+SecVal GPIOx_IDR_set(GPIOx *GPIO, uint32_t pin, uint32_t value);
 
 SecVal GPIOx_IDR_get(uint8_t pin, uint8_t* value);
 
@@ -162,7 +219,7 @@ SecVal GPIOx_IDR_get(uint8_t pin, uint8_t* value);
 				These bits are read-only and can be accessed in word mode only. They contain the input
 				value of the corresponding I/O port.
 				*/
-SecVal GPIOx_ODR_set(uint8_t pin, uint8_t value);
+SecVal GPIOx_ODR_set(GPIOx *GPIO, uint32_t pin, uint32_t value);
 
 SecVal GPIOx_ODR_get(uint8_t pin, uint8_t* value);
 
