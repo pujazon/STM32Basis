@@ -1,8 +1,6 @@
-#include "api_gpio.h"
+#include "./api_gpio.h"
 
-SecVal AGPIO_Turn_On_Orange_Led() {
-
-	//Todo: Error handling
+uint8_t STM32F407G_DISC_1_OrangeLedOn() {
 	
 	GPIOx_MODER_set(GPIO_D,13,GPIOx_MODER_OUTPUT);
 	GPIOx_OTYPER_set(GPIO_D,13,GPIOx_OTYPER_PUSH_PULL);
@@ -10,6 +8,6 @@ SecVal AGPIO_Turn_On_Orange_Led() {
 	GPIOx_PUPDR_set(GPIO_D,13,GPIOx_PUPDR_NO_PULL);
 	GPIOx_ODR_set(GPIO_D,13,GPIO_HIGH);
 	
-	return SecTRUE;
+	return 0;
 }
 

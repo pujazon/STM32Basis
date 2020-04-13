@@ -1,4 +1,4 @@
-#include "slib.h"
+#include "./slib.h"
 
 SecVal SecTRUE = 0x1A2B3C4D;
 SecVal SecFALSE  = 0xA1B2C3D4;

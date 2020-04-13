@@ -1,15 +1,15 @@
-#include "api_gpio.h"
-#include "slib.h"
+#include "./DrvGPIO/api_gpio.h"
+#include "./SLib/slib.h"
 #include <stdio.h>
 
 int OSMain(void) 
 {
-	SecVal ret;	
+	uint8_t ret;	
 	
 	//Turn on STM32F407G-DISC1 Orange led
-	ret = AGPIO_Turn_On_Orange_Led();	
+	ret = STM32F407G_DISC_1_OrangeLedOn();	
 
-	if(ret != SecTRUE) {
+	if(ret != 0x00) {
 		Die();
 	}
 	return 0;

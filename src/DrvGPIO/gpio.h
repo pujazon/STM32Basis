@@ -3,7 +3,7 @@
 #define GPIOx_H
 
 #include <stdint.h>
-#include "slib.h"
+#include "../SLib/slib.h"
 
 /**
 GPIOx struct 
@@ -75,6 +75,18 @@ typedef struct GPIO {
 
 /* Low voltage, logical "0" */
 #define GPIO_LOW 0x00
+
+/* Value range is two bits */
+#define GPIO_TWO_BIT_VALUE 0x01
+
+/* Only one bit value */
+#define GPIO_ONE_BIT_VALUE 0x00
+
+/* Successfull function */
+#define GPIO_SUCCESSFULL 0x00
+
+/* Wrong inputs */
+#define GPIO_WRONG_INPUTS 0x00
 
 /************************** GPIOx_MODER *************************/
 
@@ -149,7 +161,7 @@ typedef struct GPIO {
 			 *				other value will be threat as security issue
        * @return SecTRUE if okey, SecFLASE otherwise
        */
-SecVal GPIOx_MODER_set(GPIOx *GPIO, uint32_t pin, uint32_t value);
+uint8_t GPIOx_MODER_set(GPIOx *GPIO, uint32_t pin, uint32_t value);
 
 /**
        * Gets the value the GPIO[pin]_MODER set
@@ -162,7 +174,7 @@ SecVal GPIOx_MODER_set(GPIOx *GPIO, uint32_t pin, uint32_t value);
 			 *				other value will be threat as security issue
        * @return SecTRUE if okey, SecFALSE otherwise
        */
-SecVal GPIOx_MODER_get(uint8_t pin, uint8_t* value);
+uint8_t GPIOx_MODER_get(uint8_t pin, uint8_t* value);
 			 
 /**
 				Bits from 31..16 mustn't have any other value, if referenced to them, security error.
@@ -172,11 +184,11 @@ SecVal GPIOx_MODER_get(uint8_t pin, uint8_t* value);
 				1: Output open-drain
 				*/
 
-SecVal GPIOx_OTYPER_set(GPIOx *GPIO, uint32_t pin, uint32_t value);
+uint8_t GPIOx_OTYPER_set(GPIOx *GPIO, uint32_t pin, uint32_t value);
 
 //Same, Bit 31..16 cannot be addressed
 
-SecVal GPIOx_OTYPER_get(uint8_t pin, uint8_t* value);
+uint8_t GPIOx_OTYPER_get(uint8_t pin, uint8_t* value);
 
 /**
 				Bits 2y:2y+1 OSPEEDRy[1:0]: Port x configuration bits (y = 0..15)
@@ -186,10 +198,10 @@ SecVal GPIOx_OTYPER_get(uint8_t pin, uint8_t* value);
 				10: High speed
 				11: Very high speed
 				*/
-SecVal GPIOx_OSPEEDR_set(GPIOx *GPIO, uint32_t pin, uint32_t value);
+uint8_t GPIOx_OSPEEDR_set(GPIOx *GPIO, uint32_t pin, uint32_t value);
 
 
-SecVal GPIOx_OSPEEDR_get(uint8_t pin, uint8_t* value);
+uint8_t GPIOx_OSPEEDR_get(uint8_t pin, uint8_t* value);
 
 /**
 				PUPDRy[1:0]: Port x configuration bits (y = 0..15)
@@ -199,19 +211,9 @@ SecVal GPIOx_OSPEEDR_get(uint8_t pin, uint8_t* value);
 				10: Pull-down
 				11: Reserved
 				*/
-SecVal GPIOx_PUPDR_set(GPIOx *GPIO, uint32_t pin, uint32_t value);
+uint8_t GPIOx_PUPDR_set(GPIOx *GPIO, uint32_t pin, uint32_t value);
 
-SecVal GPIOx_PUPDR_get(uint8_t pin, uint8_t* value);
-
-/**
-				Bits 31:16 Reserved, must be kept at reset value. Else, addressing them, security error
-				Bits 15:0 IDRy: Port input data (y = 0..15)
-				These bits are read-only and can be accessed in word mode only. They contain the input
-				value of the corresponding I/O port.
-				*/
-SecVal GPIOx_IDR_set(GPIOx *GPIO, uint32_t pin, uint32_t value);
-
-SecVal GPIOx_IDR_get(uint8_t pin, uint8_t* value);
+uint8_t GPIOx_PUPDR_get(uint8_t pin, uint8_t* value);
 
 /**
 				Bits 31:16 Reserved, must be kept at reset value. Else, addressing them, security error
@@ -219,9 +221,19 @@ SecVal GPIOx_IDR_get(uint8_t pin, uint8_t* value);
 				These bits are read-only and can be accessed in word mode only. They contain the input
 				value of the corresponding I/O port.
 				*/
-SecVal GPIOx_ODR_set(GPIOx *GPIO, uint32_t pin, uint32_t value);
+uint8_t GPIOx_IDR_set(GPIOx *GPIO, uint32_t pin, uint32_t value);
 
-SecVal GPIOx_ODR_get(uint8_t pin, uint8_t* value);
+uint8_t GPIOx_IDR_get(uint8_t pin, uint8_t* value);
+
+/**
+				Bits 31:16 Reserved, must be kept at reset value. Else, addressing them, security error
+				Bits 15:0 IDRy: Port input data (y = 0..15)
+				These bits are read-only and can be accessed in word mode only. They contain the input
+				value of the corresponding I/O port.
+				*/
+uint8_t GPIOx_ODR_set(GPIOx *GPIO, uint32_t pin, uint32_t value);
+
+uint8_t GPIOx_ODR_get(uint8_t pin, uint8_t* value);
 
 //TODO: Still missing 4 of them
 

@@ -386,36 +386,6 @@
               <FilePath>.\main.c</FilePath>
             </File>
             <File>
-              <FileName>api_gpio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\api_gpio.c</FilePath>
-            </File>
-            <File>
-              <FileName>gpio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\gpio.c</FilePath>
-            </File>
-            <File>
-              <FileName>api_gpio.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\api_gpio.h</FilePath>
-            </File>
-            <File>
-              <FileName>gpio.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\gpio.h</FilePath>
-            </File>
-            <File>
-              <FileName>slib.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\slib.h</FilePath>
-            </File>
-            <File>
-              <FileName>slib.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\slib.c</FilePath>
-            </File>
-            <File>
               <FileName>Startup.s</FileName>
               <FileType>2</FileType>
               <FilePath>.\Startup.s</FilePath>
@@ -424,6 +394,46 @@
               <FileName>Startup.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Startup.c</FilePath>
+            </File>
+            <File>
+              <FileName>api_gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\DrvGPIO\api_gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\DrvGPIO\gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>utils_gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\DrvGPIO\utils_gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>slib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SLib\slib.c</FilePath>
+            </File>
+            <File>
+              <FileName>api_gpio.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\DrvGPIO\api_gpio.h</FilePath>
+            </File>
+            <File>
+              <FileName>gpio.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\DrvGPIO\gpio.h</FilePath>
+            </File>
+            <File>
+              <FileName>utils_gpio.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\DrvGPIO\utils_gpio.h</FilePath>
+            </File>
+            <File>
+              <FileName>slib.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SLib\slib.h</FilePath>
             </File>
           </Files>
         </Group>
