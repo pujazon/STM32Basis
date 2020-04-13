@@ -11,3 +11,16 @@ uint8_t STM32F407G_DISC_1_OrangeLedOn() {
 	return 0;
 }
 
+/* In NUCLEO F446Re, Led 2, green one, is connected
+   to GPIO Port A, Pin 5  */
+uint8_t NUCLEO_F446RE_GreenLedOn() {
+	
+	GPIOx_MODER_set(GPIO_A,5,GPIOx_MODER_OUTPUT);
+	GPIOx_OTYPER_set(GPIO_A,5,GPIOx_OTYPER_PUSH_PULL);
+	GPIOx_OSPEEDR_set(GPIO_A,5,GPIOx_OSPEEDR_MEDIUM);
+	GPIOx_PUPDR_set(GPIO_A,5,GPIOx_PUPDR_NO_PULL);
+	GPIOx_ODR_set(GPIO_A,5,GPIO_HIGH);
+	
+	return 0;
+}
+
