@@ -223,7 +223,7 @@ uint8_t GPIOx_PUPDR_get(uint8_t pin, uint8_t* value);
 				*/
 uint8_t GPIOx_IDR_set(GPIOx *GPIO, uint32_t pin, uint32_t value);
 
-uint8_t GPIOx_IDR_get(uint8_t pin, uint8_t* value);
+uint8_t GPIOx_IDR_get(GPIOx *GPIO, uint32_t pin);
 
 /**
 				Bits 31:16 Reserved, must be kept at reset value. Else, addressing them, security error
@@ -234,8 +234,6 @@ uint8_t GPIOx_IDR_get(uint8_t pin, uint8_t* value);
 uint8_t GPIOx_ODR_set(GPIOx *GPIO, uint32_t pin, uint32_t value);
 
 uint8_t GPIOx_ODR_get(uint8_t pin, uint8_t* value);
-
 //TODO: Still missing 4 of them
-
 
 #endif /* GPIOx_H */

@@ -88,7 +88,6 @@ uint8_t GPIOx_PUPDR_set(GPIOx *GPIO, uint32_t pin, uint32_t value)
 
 uint8_t GPIOx_ODR_set(GPIOx *GPIO, uint32_t pin, uint32_t value)
 {
-
 	uint8_t ret, step;
 	uint32_t mask;
 	
@@ -105,4 +104,9 @@ uint8_t GPIOx_ODR_set(GPIOx *GPIO, uint32_t pin, uint32_t value)
 	}
 	
 	return ret;
+}
+
+uint8_t GPIOx_IDR_get(GPIOx *GPIO, uint32_t pin)
+{
+	return (uint8_t) ((GPIO->IDR) & (pin));
 }
