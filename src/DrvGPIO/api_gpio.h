@@ -8,5 +8,6 @@
 //No error handling becaus einputs are hardcoded, only should have 
 //side channels security checks
 uint8_t STM32F407G_DISC_1_OrangeLedOn(void);
+uint8_t NUCLEO_F446RE_GreenLedOn(void);
 
 #endif /* GPIO_H */

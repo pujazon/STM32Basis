@@ -77,10 +77,10 @@ typedef struct GPIO {
 #define GPIO_LOW 0x00
 
 /* Value range is two bits */
-#define GPIO_TWO_BIT_VALUE 0x01
+#define GPIO_TWO_BIT_VALUE 0x02
 
 /* Only one bit value */
-#define GPIO_ONE_BIT_VALUE 0x00
+#define GPIO_ONE_BIT_VALUE 0x01
 
 /* Successfull function */
 #define GPIO_SUCCESSFULL 0x00
