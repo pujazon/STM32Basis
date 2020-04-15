@@ -381,21 +381,6 @@
           <GroupName>DrvGPIO</GroupName>
           <Files>
             <File>
-              <FileName>main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\main.c</FilePath>
-            </File>
-            <File>
-              <FileName>Startup.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>.\Startup.s</FilePath>
-            </File>
-            <File>
-              <FileName>Startup.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Startup.c</FilePath>
-            </File>
-            <File>
               <FileName>api_gpio.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\DrvGPIO\api_gpio.c</FilePath>
@@ -409,11 +394,6 @@
               <FileName>utils_gpio.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\DrvGPIO\utils_gpio.c</FilePath>
-            </File>
-            <File>
-              <FileName>slib.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\SLib\slib.c</FilePath>
             </File>
             <File>
               <FileName>api_gpio.h</FileName>
@@ -430,10 +410,60 @@
               <FileType>5</FileType>
               <FilePath>.\DrvGPIO\utils_gpio.h</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>ModesStates</GroupName>
+          <Files>
+            <File>
+              <FileName>state_snippet.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ModesStates\state_snippet.c</FilePath>
+            </File>
+            <File>
+              <FileName>ModeState_ISR.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\ModesStates\ModeState_ISR.s</FilePath>
+            </File>
+            <File>
+              <FileName>state_snippet.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ModesStates\state_snippet.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>SLib</GroupName>
+          <Files>
+            <File>
+              <FileName>slib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SLib\slib.c</FilePath>
+            </File>
             <File>
               <FileName>slib.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\SLib\slib.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Main</GroupName>
+          <Files>
+            <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>Startup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Startup.c</FilePath>
+            </File>
+            <File>
+              <FileName>Startup.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\Startup.s</FilePath>
             </File>
           </Files>
         </Group>

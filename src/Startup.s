@@ -64,7 +64,7 @@ __heap_limit
                 PRESERVE8
                 THUMB
 
-
+; TODO: EXPORT VECTOR TABLE TO ISSOLATED FILE
 ; Vector Table Mapped to Address 0 at Reset
                 AREA    RESET, DATA, READONLY
                 EXPORT  __Vectors
@@ -78,7 +78,7 @@ __Vectors       DCD     __initial_sp               ; Top of Stack
                 DCD     MemManage_Handler          ; MPU Fault Handler
                 DCD     BusFault_Handler           ; Bus Fault Handler
                 DCD     UsageFault_Handler         ; Usage Fault Handler
-                DCD     0                          ; Reserved
+                DCD     ModeState_ISR			   ; ISR used to check op modes and states 
                 DCD     0                          ; Reserved
                 DCD     0                          ; Reserved
                 DCD     0                          ; Reserved
@@ -190,6 +190,9 @@ Reset_Handler    PROC
                  LDR     R0, =OSMain
                  BX      R0
                  ENDP
+
+;Import ISR
+				IMPORT  ModeState_ISR
 
 ; Dummy Exception Handlers (infinite loops which can be modified)
 

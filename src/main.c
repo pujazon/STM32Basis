@@ -1,6 +1,8 @@
 #include "./DrvGPIO/api_gpio.h"
 #include "./SLib/slib.h"
+#include "./ModesStates/state_snippet.h"
 #include <stdio.h>
+#include <stdint.h>
 
 int OSMain(void) 
 {
@@ -16,11 +18,14 @@ int OSMain(void)
 	}
 	
 	//Input
-	STM32F407G_DISC_1_UserButtonSetup();
-	
-	while(!isButtonPushed) {		
+	STM32F407G_DISC_1_UserButtonSetup();	
+	isButtonPushed = STM32F407G_DISC_1_IsUserButtonPushed();
+	while(isButtonPushed) {		
 		isButtonPushed = STM32F407G_DISC_1_IsUserButtonPushed();
 	}		
+	
+	//Chapter 7. ARM Porcessor modes and states.
+	state_snippet();
 	
 	return 0;
 }
