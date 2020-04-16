@@ -8,9 +8,13 @@ int OSMain(void)
 {
 	uint8_t ret, isButtonPushed = 0;	
 	
-	//Turn on STM32F407G-DISC1 Orange led
-	ret = STM32F407G_DISC_1_OrangeLedOn();	
+	//GPIO Outputs 
+	STM32F446_GPIO_Setup(GPIO_D);
+	ret = STM32F407G_DISC_1_BlueLedOn();	
+	ret = STM32F407G_DISC_1_RedLedOn();	
 	
+	while(1);
+	/*
 	//If NUCLEO_
 	//ret = NUCLEO_F446RE_GreenLedOn();
 	if(ret != 0x00) {
@@ -26,6 +30,6 @@ int OSMain(void)
 	
 	//Chapter 7. ARM Porcessor modes and states.
 	state_snippet();
-	
+	*/
 	return 0;
 }

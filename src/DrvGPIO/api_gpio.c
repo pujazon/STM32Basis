@@ -1,7 +1,21 @@
 #include "./api_gpio.h"
 
+//TODO: It's only a patch
+uint8_t STM32F446_GPIO_Setup(GPIOx *GPIO){
+	
+	//RCC_EN_GPIO = 0x40023830;
+	//TODO:Know which GPIO is using distance from reference and GPIO passed as reference
+	//Because GPIO ports in RCC are in ascending order
+	//Now hardcoded Port D	
+	//http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0205j/Cihccdja.html
+	RCC_AHB1ENR->PORTS1 = RCC_AHB1ENR->PORTS1 | 0x00000008;
+	
+	return 0;
+}
+
 uint8_t STM32F446_LedOn(GPIOx *GPIO, uint8_t pin)
 {
+	GPIOx_BSR_set(GPIO,pin,GPIO_HIGH);
   GPIOx_MODER_set(GPIO,pin,GPIOx_MODER_OUTPUT);
 	GPIOx_OTYPER_set(GPIO,pin,GPIOx_OTYPER_PUSH_PULL);
 	GPIOx_OSPEEDR_set(GPIO,pin,GPIOx_OSPEEDR_MEDIUM);

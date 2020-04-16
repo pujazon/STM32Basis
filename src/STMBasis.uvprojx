@@ -468,6 +468,16 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>Arch</GroupName>
+          <Files>
+            <File>
+              <FileName>RCC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Arch\RCC\RCC.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
       </Groups>

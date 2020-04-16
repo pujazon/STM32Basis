@@ -4,10 +4,14 @@
 
 #include "../SLib/slib.h"
 #include "./gpio.h"
+#include "../Arch/RCC/RCC.h"
 
 /************ STM32 *************************/
 //No error handling becaus einputs are hardcoded, only should have 
 //side channels security checks
+//TODO: Issolate RCC register accesses and handlers
+//			and rethink where to place that function(inside handlers, as a setup fuction, with flag...)
+uint8_t STM32F446_GPIO_Setup(GPIOx *GPIO);
 uint8_t STM32F446_LedOn(GPIOx *GPIO, uint8_t pin);
 uint8_t STM32F446_ButtonSetup(GPIOx *GPIO, uint8_t pin);
 

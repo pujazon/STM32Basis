@@ -8,7 +8,7 @@ uint8_t state_snippet(void)
 	//1. Change from priveleged to unprivileged
 	//TODO: Encapsulate that
 	
-	Call_ModeState_ISR();
+	//Call_ModeState_ISR();
 	
 	//Try to do privileged access
 	

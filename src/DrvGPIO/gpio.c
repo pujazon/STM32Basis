@@ -106,6 +106,28 @@ uint8_t GPIOx_ODR_set(GPIOx *GPIO, uint32_t pin, uint32_t value)
 	return ret;
 }
 
+
+uint8_t GPIOx_BSR_set(GPIOx *GPIO, uint32_t pin, uint32_t value)
+{
+	uint8_t ret, step;
+	uint32_t mask;
+	
+	ret = GPIO_SUCCESSFULL;
+	
+	step = UtilsGPIO_CheckValues(value,pin,GPIOx_OTYPER_ERROR_VALUE,GPIOx_MAX_PIN);
+	/*
+	if (step > utilsGpioSuccessfull) {
+	  ret = GPIO_WRONG_INPUTS;
+	} 
+	else {
+	*/
+		mask = UtilsGPIO_GetMask(value,pin,GPIO_ONE_BIT_VALUE);
+		GPIO->BSRR = (GPIO->BSRR) | (mask);
+	//}
+	
+	return ret;
+}
+
 uint8_t GPIOx_IDR_get(GPIOx *GPIO, uint32_t pin)
 {
 	return (uint8_t) ((GPIO->IDR) & (pin));

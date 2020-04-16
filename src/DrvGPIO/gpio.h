@@ -232,6 +232,7 @@ uint8_t GPIOx_IDR_get(GPIOx *GPIO, uint32_t pin);
 				value of the corresponding I/O port.
 				*/
 uint8_t GPIOx_ODR_set(GPIOx *GPIO, uint32_t pin, uint32_t value);
+uint8_t GPIOx_BSR_set(GPIOx *GPIO, uint32_t pin, uint32_t value);
 
 uint8_t GPIOx_ODR_get(uint8_t pin, uint8_t* value);
 //TODO: Still missing 4 of them
